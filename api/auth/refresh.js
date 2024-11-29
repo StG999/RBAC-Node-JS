@@ -6,12 +6,12 @@ const router = express.Router();
 router.post('/', async (req, res) => {
   const { refresh_token, device_id } = req.body;
   try {
-    const { newAccessToken, newRefreshToken } = refreshAccessToken(
+    const { newAccessToken, newRefreshToken, user_id } = refreshAccessToken(
       refresh_token,
       device_id
     );
 
-    req.logger.info(`User "${req.user.user_id}" refreshed access token`);
+    req.logger.info(`User "${user_id}" refreshed access token`);
     return res.status(200).json({
       message: 'Access token refreshed successfully',
       refresh_token: newRefreshToken,

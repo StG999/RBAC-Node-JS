@@ -62,7 +62,7 @@ const refreshAccessToken = (refreshToken, device_id) => {
   // store new refresh token in cache
   cache.set(key, newRefreshToken);
 
-  return { newAccessToken, newRefreshToken };
+  return { newAccessToken, newRefreshToken, user_id: payload.user_id };
 };
 
 const verifyToken = (token) => {
