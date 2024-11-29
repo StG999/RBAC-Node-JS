@@ -7,10 +7,12 @@ A simple Node.js project implementing authentication, authorization, and Role-Ba
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - [Node.js](https://nodejs.org/) v14 or above
 - [npm](https://www.npmjs.com/)
 
 ### Installation
+
 1. Clone the repository:
    ```bash
    git clone https://github.com/StG999/RBAC-Node-JS.git
@@ -32,29 +34,33 @@ The server will start on `http://localhost:3000` (default port).
 ## 📋 API Endpoints
 
 ### **Authentication**
-| Method | Endpoint              | Description                  | Role/Access |
-|--------|-----------------------|------------------------------|-------------|
-| POST   | `/auth/register`      | Register a new user          | Public      |
-| POST   | `/auth/login`         | Login a user                 | Public      |
-| POST   | `/auth/logout`        | Logout a user                | User/Admin  |
-| POST   | `/auth/refresh`       | Refresh access token         | User/Admin  |
+
+| Method | Endpoint         | Description          | Role/Access |
+| ------ | ---------------- | -------------------- | ----------- |
+| POST   | `/auth/register` | Register a new user  | Public      |
+| POST   | `/auth/login`    | Login a user         | Public      |
+| POST   | `/auth/logout`   | Logout a user        | User/Admin  |
+| POST   | `/auth/refresh`  | Refresh access token | Public      |
 
 ### **Fruits**
-| Method | Endpoint              | Description                  | Role/Access  |
-|--------|-----------------------|------------------------------|--------------|
-| GET    | `/api/fruits/view`    | View all fruits              | User/Admin   |
-| POST   | `/api/fruits/create`  | Create a new fruit           | Admin Only   |
+
+| Method | Endpoint             | Description        | Role/Access |
+| ------ | -------------------- | ------------------ | ----------- |
+| GET    | `/api/fruits/view`   | View all fruits    | User/Admin  |
+| POST   | `/api/fruits/create` | Create a new fruit | Admin Only  |
 
 ### **Heartbeat**
-| Method | Endpoint       | Description              | Role/Access |
-|--------|----------------|--------------------------|-------------|
-| GET    | `/heartbeat`   | Check server status      | Public      |
+
+| Method | Endpoint     | Description         | Role/Access |
+| ------ | ------------ | ------------------- | ----------- |
+| GET    | `/heartbeat` | Check server status | Public      |
 
 ---
 
 ## 🔧 Middleware
 
 ### **Core Middleware**
+
 1. **rateLimiter**: Limits requests per IP to 50 requests per minute.
 2. **attachLogger**: Logs all incoming requests using Winston.
 3. **authorize**: Authorizes access based on the user's role (e.g., `user` or `admin`).
@@ -64,11 +70,13 @@ The server will start on `http://localhost:3000` (default port).
 ## 🔐 Authentication and Tokens
 
 ### **Access Tokens**
+
 - **TTL**: 15 minutes
 - Used for accessing protected routes.
 - Generated on login.
 
 ### **Refresh Tokens**
+
 - **TTL**: 7 days
 - Used to refresh access tokens without requiring login.
 - Refresh tokens are **rotated** whenever an access token is refreshed, improving security.
@@ -78,13 +86,16 @@ The server will start on `http://localhost:3000` (default port).
 ## 🛠 Technologies Used
 
 1. **Authentication**:
+
    - [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken): For signing and verifying tokens.
    - [bcrypt](https://www.npmjs.com/package/bcrypt): For securely hashing passwords.
 
 2. **Logging**:
+
    - [Winston](https://www.npmjs.com/package/winston): For request and error logging.
 
 3. **Caching**:
+
    - [node-cache](https://www.npmjs.com/package/node-cache): For caching refresh tokens.
 
 4. **Database**:

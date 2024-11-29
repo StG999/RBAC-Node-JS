@@ -10,6 +10,7 @@ router.post('/', async (req, res) => {
       refresh_token,
       device_id
     );
+
     req.logger.info(`User "${req.user.user_id}" refreshed access token`);
     return res.status(200).json({
       message: 'Access token refreshed successfully',

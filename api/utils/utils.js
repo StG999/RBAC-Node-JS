@@ -43,7 +43,7 @@ const refreshAccessToken = (refreshToken, device_id) => {
   }
 
   // generate new access token
-  const accessToken = jwt.sign(
+  const newAccessToken = jwt.sign(
     { user_id: payload.user_id, role: payload.role },
     ACCESS_SECRET,
     {
@@ -62,7 +62,7 @@ const refreshAccessToken = (refreshToken, device_id) => {
   // store new refresh token in cache
   cache.set(key, newRefreshToken);
 
-  return { accessToken, newRefreshToken };
+  return { newAccessToken, newRefreshToken };
 };
 
 const verifyToken = (token) => {

@@ -10,6 +10,6 @@ const router = express.Router();
 router.use('/login', login);
 router.use('/logout', authorize(['admin', 'user']), logout);
 router.use('/register', register);
-router.use('/refresh', authorize(['admin', 'user']), refresh);
+router.use('/refresh', refresh);
 
 export default router;
