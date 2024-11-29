@@ -3,6 +3,11 @@
 A simple Node.js project implementing authentication, authorization, and Role-Based Access Control (RBAC) with secure token-based mechanisms, caching, and middleware.
 
 ---
+## 📽 Video Tutorial
+
+https://github.com/user-attachments/assets/858cff3d-41c6-46ec-918b-0deb5f840610
+
+---
 
 ## 🚀 Getting Started
 
